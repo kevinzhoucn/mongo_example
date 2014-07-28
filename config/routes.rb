@@ -1,10 +1,18 @@
 Rails3MongoidDevise::Application.routes.draw do
+  # scope module: 'meta_prog' do
+  #   get 'front/index', path: '/meta/front'
+  # end
+
+  scope '/meta', module: 'meta_prog' do
+    get 'front', to: 'front#index'
+  end
+
   resources :articles
 
   authenticated :user do
     root :to => 'home#index'
   end
-  root :to => "home#index"
+  root :to => 'home#index'
   devise_for :users
   resources :users
 end
