@@ -6,6 +6,7 @@ Rails3MongoidDevise::Application.routes.draw do
   scope '/meta', module: 'meta_prog' do
     get 'front', to: 'front#index'
     get 'block', to: 'front#block'
+    get 'iclass', to: 'front#iclass'
   end
 
   resources :articles
