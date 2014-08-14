@@ -7,6 +7,7 @@ Rails3MongoidDevise::Application.routes.draw do
     get 'front', to: 'front#index'
     get 'block', to: 'front#block'
     get 'iclass', to: 'front#iclass'
+    get 'isource', to: 'front#isource'
   end
 
   resources :articles
