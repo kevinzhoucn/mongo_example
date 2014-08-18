@@ -29,8 +29,8 @@ db/*.sqlite3
 
 /public/cache
 /public/stylesheets/compiled
-/public/js/*
-/public/css/*
+#/public/js/*
+#/public/css/*
 /spec/tmp/*
 /cache
 /gems

@@ -1,0 +1,21 @@
+%h2{data: { bind: "text: question" }}
+%p
+  Please distribute
+  %b{data: {bind: "text: pointsBudget"}}
+  points between the following options.
+
+%table
+  %thead
+    %tr
+      %th Option
+      %th Importance
+  %tbody{data: {bind: "foreach: answers"}}
+    %tr
+      %td{data: {bind: "text: answerText"}}
+      %td
+        %select{data: {bind: "options: [1,2,3,4,5], value: points"}}
+
+%p
+  You've got
+  %b{data: {bind: "text: pointBudget - pointsUsed()"}}
+  points left to use.
