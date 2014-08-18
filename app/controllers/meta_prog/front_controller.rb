@@ -96,7 +96,7 @@ class MetaProg::FrontController < ApplicationController
     my_loan = Loan.new("War and Peace")
     @data << my_loan.to_s
     
-    my_book = Book.new
+    my_book = Book.new("War and Peace")
     @data << my_book.LEND_TO_USER("Bill", "Mac")
 
     # my singleton method
@@ -117,6 +117,32 @@ class MetaProg::FrontController < ApplicationController
 
     my_class_03 = MyModuleClass.new
     @data << MyModuleClass.my_method
+    @data << MyModuleClass02.my_method
   end
 # end iclass action
+
+# get 'meta/isource' isource action
+    def isource
+        @data = []
+
+        @data << MetaProg::A::B.greet
+        isource = MetaSource.new
+        @data << isource
+
+        duck = Duck.new
+        @data << Duck.find
+        @data << duck.id
+
+        @data << Duck.validates_each
+        @data << duck.save_with_validation
+
+        # @data << Duck.instance_methods
+        # @data << Duck.methods
+        # @data << duck.methods
+
+        @data << duck.class.methods
+        @data << duck.class.public_class_method
+        @data << Duck.class.private_methods
+        @data << duck.class.class_variables
+    end
 end
