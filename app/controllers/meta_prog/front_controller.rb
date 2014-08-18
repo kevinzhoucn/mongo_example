@@ -124,9 +124,9 @@ class MetaProg::FrontController < ApplicationController
 # get 'meta/isource' isource action
     def isource
         @data = []
-
-        @data << MetaProg::A::B.greet
         isource = MetaSource.new
+
+        @data << MetaProg::A::B.greet        
         @data << isource
 
         duck = Duck.new

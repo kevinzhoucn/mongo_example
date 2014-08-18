@@ -10,6 +10,12 @@ Rails3MongoidDevise::Application.routes.draw do
     get 'isource', to: 'front#isource'
   end
 
+  scope '/ipattern', module: 'design_pattern' do
+    get '', to: 'front#index'
+    get 'iobserver', to: 'front#iobserver'
+    get 'icomposite', to: 'front#icomposite'
+  end
+
   resources :articles
 
   authenticated :user do
