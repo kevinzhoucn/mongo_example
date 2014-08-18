@@ -1,0 +1,25 @@
+%div.flex-row{style: "height: 100%"}
+  %div.flex-time.flex-split1.flex-col
+    %div.flex-itme.flex-split1.content.padder{style: "height: 300px;"}
+      %h2.text-style-header3.sectionName{:data => {bind: "text: companyName"} }
+      %div.mainLastPrice
+        %span{:data => {bind:"text: lastPrice, css: percentChangeColor"} }
+    %div.flex-item.flex-split1.flex-row{style: "height: 230px;"}
+      %div.flex-item.flex-split1.content.padder
+        %h2.text-style-header3.sectionName % 百分比
+        %div.percentChange
+          %span{:data => {bind: "text: formatedPercentChange, css: percentChangeColor"} }
+      %div.flex-item.flex-split1.content
+        %div{style: "height: 220px; overflow-x: hidden; overflow-y: auto;"}
+          %div.l-table.s-table2.links-alt-color{style: "width:100%;font-size:12px;"}
+            %div.l-table-row.s-header-row
+              %div.l-table-cell
+                %b 
+                  最新新闻：
+                  %span{:data => { bind: "text: companyName"}}
+          %div.l-table.s-table2.links-alt-color{style: "width:100%;font-size:12px;", :data => {bind: "foreach: news"}}
+            %div.l-table-row
+              %div.l-table-cell
+                %span{style: "font-weight: bold", :data => {bind: "text: t"} }
+                -
+                %a.newsLink{href: "javascript:void(0)", data: {bind: "html: h, click:$parent.openNews"}}

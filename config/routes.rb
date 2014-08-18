@@ -9,6 +9,10 @@ Rails3MongoidDevise::Application.routes.draw do
     get 'iclass', to: 'front#iclass'
   end
 
+  scope '/ieikon', module: 'eikon_dev' do
+    get '', to: 'front#index'
+  end
+
   resources :articles
 
   authenticated :user do
