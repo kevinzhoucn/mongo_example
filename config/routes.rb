@@ -16,6 +16,10 @@ Rails3MongoidDevise::Application.routes.draw do
     get 'icomposite', to: 'front#icomposite'
   end
 
+  scope '/ieikon', module: 'eikon_dev' do
+    get '', to: 'front#index'
+  end
+
   resources :articles
 
   authenticated :user do

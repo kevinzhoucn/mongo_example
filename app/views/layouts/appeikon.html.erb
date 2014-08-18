@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Eikon App Development - Greek Goddess" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Eikon App Development" %>">
+    <link rel="stylesheet" type="text/css" href="<%= root_url %>css/eikonwebui.css">
+    <script type="text/javascript" src="<%= root_url %>libs/jquery-2.1.0.min.js"></script>
+    <script type="text/javascript" src="<%= root_url %>libs/knockout-3.1.0.min.js"></script>
+    <script type="text/javascript" src="<%= root_url %>libs/jet-1.3.1/JET.js"></script>
+    <script type="text/javascript" src="<%= root_url %>libs/jet-1.3.1/plugins/Quotes.js"></script>
+    <script type="text/javascript" src="<%= root_url %>libs/jet-1.3.1/plugins/News.js"></script>
+    <script type="text/javascript" src="<%= root_url %>js/app.js"></script>
+    <%= stylesheet_link_tag "application", :media => "all" %>    
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <%= yield(:head) %>
+    <style type="text/css">
+      body {
+        margin: 10px 10px 10px 10px;
+        height: 100%;
+      }
+      .padder {
+        padding: 10px 10px 10px 10px;
+      }
+      .sectionName {
+        font-size: 35px;
+      }
+      .mainLastPrice {
+        font-size: 200px;
+        font-weight: bold;
+        text-align: center;
+      }
+      .percentChange {
+        font-size: 100px;
+        font-weight: bold;
+        text-align: center;
+      }
+      .newsLink {
+        color: #28d2ff !important;
+      }
+    </style>
+  </head>
+  <body class="<%= controller_name %> <%= action_name %>">
+    <div id="container" class="container">
+      <header>
+        <%= render 'layouts/messages' %>
+      </header>
+      <div id="main" role="main">
+        <%= yield %>
+      </div>
+      <footer>
+      </footer>
+    </div> <!--! end of #container -->
+  </body>
+</html>
