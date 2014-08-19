@@ -1,7 +1,9 @@
 %div.flex-row{style: "height: 100%"}
   %div.flex-time.flex-split1.flex-col
     %div.flex-itme.flex-split1.content.padder{style: "height: 300px;"}
-      %h2.text-style-header3.sectionName{:data => {bind: "text: companyName"} }
+      %div.section_header
+        %h2.text-style-header3.sectionName{:data => {bind: "text: companyName"} }
+        %span{:data => {bind:"text: details"} }
       %div.mainLastPrice
         %span{:data => {bind:"text: lastPrice, css: percentChangeColor"} }
     %div.flex-item.flex-split1.flex-row{style: "height: 230px;"}
