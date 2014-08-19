@@ -4,5 +4,9 @@ module EikonDev
       @data ||= []
       @data << "Eikon Dev"
     end
+
+    def getstart
+      
+    end
   end
 end

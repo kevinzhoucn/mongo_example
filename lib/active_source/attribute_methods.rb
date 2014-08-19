@@ -1,4 +1,4 @@
-module ActiveRecord
+module ActiveSource
   module AttributeMethods
     def method_missing(method_id, *args, &block)
       method_name = method_id.to_s
