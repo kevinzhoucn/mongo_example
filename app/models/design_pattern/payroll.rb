@@ -87,7 +87,7 @@ module DesignPattern
   end
 
   class Employee03
-    include Observable
+    include Iobserver::Subject
 
     attr_reader :name, :address
     attr_reader :salary

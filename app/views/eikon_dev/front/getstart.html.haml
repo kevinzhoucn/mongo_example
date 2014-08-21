@@ -13,9 +13,9 @@
     %tr
       %td{data: {bind: "text: answerText"}}
       %td
-        %select{data: {bind: "options: [1,2,3,4,5], value: points"}}
+        %select{data: {bind: "options: [1,2,3,4], value: points"}}
 
 %p
   You've got
-  %b{data: {bind: "text: pointBudget - pointsUsed()"}}
-  points left to use.
+  %b{data: {bind: "text: pointsUsed()"}}
+  points.

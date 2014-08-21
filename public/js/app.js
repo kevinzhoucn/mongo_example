@@ -2,7 +2,7 @@
 //Properties with ko.observable() and ko.computed() are bound
 //to the UI so changing these properties will automatically update
 //the UI.
-
+/*
 function AppModel(JET) {
 
 	//Model-View properties
@@ -184,3 +184,4 @@ $(document).ready(function() {
 	});
 
 });
+*/

@@ -13,7 +13,7 @@ SurveyViewModel = function(question, pointsBudget, answers) {
         var total = 0;
         for (var i = 0; i < this.answers.length; i++)
             total += this.answers[i].points();
-        return total;        
+        return total;
     }, this);
 }
 
