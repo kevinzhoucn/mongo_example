@@ -1,41 +1,34 @@
-#Answer =(text) ->
-#  @answerText = text
-#  @points = ko.observable(1)
-
 class Answer
   constructor: (text) ->
     @answerText = text
     @points = ko.observable(1)
 
 class SurveyViewModel
-  constructor: (question, pointsBudget, answers) ->
+  defPercent = [35, 22, 28, 15]
+  constructor: (question, pointsBudget, answers) ->    
     @question = question
     @pointsBudget = pointsBudget
     @answers = (new Answer text for text in answers)
-
-#  pintsUsed: ko.computed ->
-#    total = 0
-#    for answer in @answers
-#      total += answer.points()
-#    total
-
-  pointsUsed: ->
-    total = 0
-    ( ( total += answer.points() ) for answer in @answers )
-    total
-  
-#  pointsUsed: ko.computed => 
-#    ( answer.points() for answer in @answers )
-#      total += answer.points()
-
-    #@pointsUsed = ko.computedb ->
-    #  for answer in @answers
-    #    total += answer.points()
-
-#SurveyViewModel =(question, pointsBudget, answers01) ->
-#  @question = question
-#  @pointsBudget = pointsBudget
-#  @answers = (new Answer text for text in answers01)
+    @pointsUsed = ko.computed =>
+      total = 0
+      ( ( total += answer.points() ) for answer in @answers )
+      total
+    @percentStocks = ko.computed =>
+      tt = 1 - ( this.pointsUsed() / 10 )
+      percent = 35 - tt * 35
+      return percent.toFixed(1) + "%"
+    @percentMM = ko.computed =>
+      tt = 1 - ( this.pointsUsed() / 10 )
+      percent = 22 - tt * 22
+      return percent.toFixed(1) + "%"
+    @percentCommodity = ko.computed =>
+      tt = 1 - ( this.pointsUsed() / 10 )
+      percent = 28 + tt * 22
+      return percent.toFixed(1) + "%"
+    @percentFixedIncome = ko.computed =>
+      tt = 1 - ( this.pointsUsed() / 10 )
+      percent = 15 + tt * 35
+      return percent.toFixed(1) + "%"
 
 $ ->
   answers = [
@@ -44,5 +37,4 @@ $ ->
      "Number of gradients/dropshadows on project homepage",        
      "Totally believable testimonials on project homepage"
   ]
-  answers01 = [1, 2, 3, 4, 5]
   ko.applyBindings(new SurveyViewModel("Which factors affect your technology choices?", 10, answers))
