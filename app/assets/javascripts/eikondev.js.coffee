@@ -9,14 +9,6 @@ class SurveyViewModel
     @question = question
     @pointsBudget = pointsBudget
     @answers = (new Answer text for text in answers)
-    @firstName = ko.observable("Bob")
-    @lastName = ko.observable("Smith")
-    @fullName01 = ko.computed =>
-      @firstName() + " " + @lastName()
-    @pointsUsed01 = ko.computed =>
-      total = 0
-      ( ( total += answer.points() ) for answer in @answers )
-      total
     @pointsUsed = ko.computed =>
       total = 0
       ( ( total += answer.points() ) for answer in @answers )
@@ -37,6 +29,18 @@ class SurveyViewModel
       tt = 1 - ( this.pointsUsed() / 10 )
       percent = 15 + tt * 35
       return percent.toFixed(1) + "%"
+    @percentArray = ko.computed =>
+      ret = []
+      tt = 1 - ( this.pointsUsed() / 10 )
+      percent = 35 - tt * 35
+      ret.push(percent.toFixed(0) + "%")
+      percent = 22 - tt * 22
+      ret.push(percent.toFixed(0) + "%")
+      percent = 28 + tt * 22
+      ret.push(percent.toFixed(0) + "%")
+      percent = 15 + tt * 35
+      ret.push(percent.toFixed(0) + "%")
+      ret
 
 $ ->
   answers = [
@@ -45,4 +49,4 @@ $ ->
      "Number of gradients/dropshadows on project homepage",        
      "Totally believable testimonials on project homepage"
   ]
-  ko.applyBindings(new SurveyViewModel("Which factors affect your technology choices?", 10, answers))
+  ko.applyBindings(new SurveyViewModel("Which factors affect your finance choices?", 10, answers))

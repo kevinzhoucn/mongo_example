@@ -19,18 +19,8 @@
   You've got
   %b{data: {bind: "text: pointsUsed()"}}
   points.
-%p
-  Points 01:
-  %b{data: {bind: "text: pointsUsed01()"}}
 
-%p
-  %input{data: {bind: "value: firstName"}}
-  %input{data: {bind: "value: lastName"}}
-%span{data: {bind: "text: fullName()"}}
-%p
-  Full Name 01: 
-  %span{data: {bind: "text: fullName()"}}
-
+%h2 Section 1:
 %p
   Stocks:
   %b{data: {bind: "text: percentStocks()"}}
@@ -43,3 +33,17 @@
 %p
   Fixed Income:
   %b{data: {bind: "text: percentFixedIncome()"}}
+
+%h2 Section 2:
+%p
+  Stocks:
+  %b{data: {bind: "text: percentArray()[0]"}}
+%p
+  Money Market:
+  %b{data: {bind: "text: percentArray()[1]"}}
+%p
+  Commodity:
+  %b{data: {bind: "text: percentArray()[2]"}}
+%p
+  Fixed Income:
+  %b{data: {bind: "text: percentArray()[3]"}}
