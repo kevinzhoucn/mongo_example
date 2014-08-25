@@ -12,17 +12,33 @@ class SurveyViewModel
     @question = question
     @pointsBudget = pointsBudget
     @answers = (new Answer text for text in answers)
+    @firstName = ko.observable("Bob")
+    @lastName = ko.observable("Smith")
+    @fullName01 = ko.computed =>
+      @firstName() + " " + @lastName()
 
-#  pintsUsed: ko.computed ->
+    @pointsUsed01 = ko.computed =>
+      total = 0
+      ( ( total += answer.points() ) for answer in @answers )
+      total
+
+  fullName: ->
+    @firstName() + " " + @lastName()
+
+#  pointsUsed: ko.computed ->
 #    total = 0
-#    for answer in @answers
-#      total += answer.points()
+#    ( ( total += answer.points() ) for answer in @answers )
 #    total
+#  , this
 
   pointsUsed: ->
     total = 0
     ( ( total += answer.points() ) for answer in @answers )
     total
+
+#  fullName: ko.computed ->
+#    return @firstName + " " + @lastName
+#  , this
   
 #  pointsUsed: ko.computed => 
 #    ( answer.points() for answer in @answers )
