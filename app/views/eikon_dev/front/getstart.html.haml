@@ -15,6 +15,10 @@
       %td
         %select{data: {bind: "options: [1,2,3,4], value: points"}}
 
+%p Test
+%div
+  %p{data: {bind: "text: answers[2].answerText"}}
+
 %p
   You've got
   %b{data: {bind: "text: pointsUsed()"}}

@@ -1,5 +1,5 @@
 class Answer
-  constructor: (text) ->
+  constructor: (text) ->    
     @answerText = text
     @points = ko.observable(1)
 
