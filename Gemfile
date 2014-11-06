@@ -12,6 +12,11 @@ gem 'figaro'
 gem 'mongoid'
 gem 'haml-rails'
 gem 'thin'
+
+gem 'sidekiq', '3.1.2'
+gem 'sinatra', require: false
+gem 'slim'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]

@@ -1,8 +1,10 @@
 Rails3MongoidDevise::Application.routes.draw do
+  require 'sidekiq/web'
+  mount Sidekiq::Web, at: '/sidekiq'
   # scope module: 'meta_prog' do
   #   get 'front/index', path: '/meta/front'
   # end
-
+  get '/world' => 'home#world'
   scope '/meta', module: 'meta_prog' do
     get 'front', to: 'front#index'
     get 'block', to: 'front#block'

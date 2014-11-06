@@ -5,4 +5,7 @@ class HomeController < ApplicationController
   end
   def error
   end
+  def world
+    HardWorker.perform_async('bob', 5)
+  end
 end
